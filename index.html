@@ -14,17 +14,17 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-KTPTHXWN3F');
-  </script>
 
-  <!-- Google Tag (Ads) -->
-  <script>
-    gtag('event', 'conversion', {
-        'send_to': 'AW-18153230010/QWKJCJXo5KocELqdkdBD',
-        'transaction_id': ''
-        // 'new_customer': true /* calculate dynamically, populate with true/false */,
-    });
+    /* ============================================================
+       🔧 SHARED CONFIG — change these ONE place, affects ALL pages
+       ============================================================ */
+    window.SITE_CONFIG = {
+      GTAG_ID:   'G-KTPTHXWN3F',
+      AW_ID:     'AW-18153230010',
+      AW_LABEL:  'QWKJCJXo5KocELqdkdBD',
+      DIST_ID:   '12928389'
+    };
   </script>
-
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,9 +34,7 @@
       display: flex; align-items: center; justify-content: center;
       min-height: 100vh;
     }
-    .loader {
-      display: flex; flex-direction: column; align-items: center; gap: 20px;
-    }
+    .loader { display: flex; flex-direction: column; align-items: center; gap: 20px; }
     .spinner {
       width: 44px; height: 44px;
       border: 3px solid rgba(255,255,255,0.12);
@@ -45,21 +43,11 @@
       animation: spin 0.8s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .loader p {
-      color: rgba(255,255,255,0.5);
-      font-size: 13px;
-      letter-spacing: 0.3px;
-    }
-    .loader img {
-      height: 36px;
-      opacity: 0.85;
-      margin-bottom: 8px;
-    }
+    .loader p { color: rgba(255,255,255,0.5); font-size: 13px; letter-spacing: 0.3px; }
+    .loader img { height: 36px; opacity: 0.85; margin-bottom: 8px; }
   </style>
 </head>
 <body>
-
-  <!-- Shown briefly while geo lookup runs -->
   <div class="loader" id="loader">
     <img src="https://media2.4life.com/images/logos/Blue_Logo_Primary_v2a_ENG.svg" alt="4Life" />
     <div class="spinner"></div>
@@ -69,44 +57,41 @@
   <script>
     /* ============================================================
        COUNTRY → FILE MAP
-       Add or remove countries here. The file names must match
-       the HTML files sitting in the same folder as this index.html
-       Unmapped countries fall back to usa.html
+       Add or remove entries here. Unmapped countries → usa.html
        ============================================================ */
     var COUNTRY_MAP = {
-      "DE": "germany.html",   // Germany
-      "PE": "peru.html",      // Peru
-      "MX": "mexico.html",    // Mexico
-      "EC": "ecuador.html",   // Ecuador
-      "US": "usa.html"        // United States (also the fallback)
+      "DE": "germany.html",
+      "PE": "peru.html",
+      "MX": "mexico.html",
+      "EC": "ecuador.html",
+      "US": "usa.html"
     };
-
     var FALLBACK = "usa.html";
 
-    /* ── GEO DETECTION ── */
     function loadCountryPage(countryCode) {
       var file = COUNTRY_MAP[countryCode] || FALLBACK;
 
-      /* Track which country was detected */
       gtag('event', 'geo_detected', {
         'event_category': 'geo',
         'event_label': countryCode || 'unknown',
         'page_loaded': file
       });
 
-      /* Fetch the country-specific HTML and replace the entire document */
       fetch(file)
         .then(function(res) {
           if (!res.ok) throw new Error("File not found: " + file);
           return res.text();
         })
         .then(function(html) {
-          /* Replace full document with the country page */
+          /* Inject shared config so country pages can read it */
+          var configScript = '<script>window.SITE_CONFIG=' +
+            JSON.stringify(window.SITE_CONFIG) + ';<\/script>';
+          html = html.replace('</head>', configScript + '</head>');
+
           document.open();
           document.write(html);
           document.close();
 
-          /* Update browser URL to reflect the country file without a page reload */
           if (window.history && window.history.replaceState) {
             window.history.replaceState({}, '', window.location.href);
           }
@@ -121,18 +106,13 @@
         });
     }
 
-    /* ── IP GEOLOCATION (free, no API key needed) ── */
     fetch("https://ipapi.co/json/")
       .then(function(res) { return res.json(); })
       .then(function(data) {
         var code = (data && data.country_code) ? data.country_code.toUpperCase() : null;
         loadCountryPage(code);
       })
-      .catch(function() {
-        /* If geo API fails (e.g. ad blocker), load fallback silently */
-        loadCountryPage(null);
-      });
+      .catch(function() { loadCountryPage(null); });
   </script>
-
 </body>
 </html>

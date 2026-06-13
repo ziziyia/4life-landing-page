@@ -1,351 +1,233 @@
 <!DOCTYPE html>
-<html lang="de-DE">
+<html lang="de">
 <head>
-
-  <!-- ── GOOGLE TAG (gtag.js) ── -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTPTHXWN3F"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-KTPTHXWN3F');
-  </script>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <title>Immunsystem-Unterstützung & Nahrungsergänzung | 4Life Deutschland</title>
-  <meta name="description" content="4Life Research, Das Immunsystem-Unternehmen, führend in der Immunsystemwissenschaft und im Wohlbefinden – mit wissenschaftlich fundierten Nahrungsergänzungsmitteln für ein gesünderes Leben.">
+  <title>Immunsystem-Unterstützung & Wellness-Ergänzungsmittel | 4Life Deutschland</title>
+  <meta name="description" content="4Life Research – wissenschaftlich fundierte Immununterstützung für Deutschland.">
 
   <script>
-    var DIST_ID = "12928389";
-    var COUNTRY_HOST = "https://germany.4life.com";
+    /* ── CONFIG (injected by index.html; fallback for direct open) ── */
+    if (!window.SITE_CONFIG) {
+      window.SITE_CONFIG = {
+        GTAG_ID:  'G-KTPTHXWN3F',
+        AW_ID:    'AW-18153230010',
+        AW_LABEL: 'QWKJCJXo5KocELqdkdBD',
+        DIST_ID:  '12928389'
+      };
+    }
+    var CFG = window.SITE_CONFIG;
 
-    function _4l(path) {
-      return COUNTRY_HOST + "/" + DIST_ID + (path || "");
+    /* ── Google Analytics ── */
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    /* ── Google Ads conversion ── */
+    function fireAdsConversion() {
+      gtag('event', 'conversion', {
+        'send_to': CFG.AW_ID + '/' + CFG.AW_LABEL,
+        'transaction_id': ''
+      });
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll("[data-4l]").forEach(function (el) {
-        el.href = _4l(el.getAttribute("data-4l"));
+    /* ── Distributor link builder ── */
+    var COUNTRY_HOST = 'https://germany.4life.com';
+    function _4l(path) {
+      return COUNTRY_HOST + '/' + CFG.DIST_ID + (path || '');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      /* Load gtag dynamically with the correct ID */
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + CFG.GTAG_ID;
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', CFG.GTAG_ID);
+
+      /* Fire Ads conversion */
+      fireAdsConversion();
+
+      /* Inject distributor links */
+      document.querySelectorAll('[data-4l]').forEach(function(el) {
+        el.href = _4l(el.getAttribute('data-4l'));
       });
+
+      /* ── Product anchor highlight ── */
+      var params = new URLSearchParams(window.location.search);
+      var slug   = params.get('product');
+      if (slug) {
+        var card = document.getElementById('prod-' + slug);
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(function () {
+            card.classList.add('product-highlight');
+            card.addEventListener('animationend', function () {
+              card.style.transform   = 'translateY(-5px)';
+              card.style.boxShadow   = '0 10px 28px rgba(0,125,227,0.22)';
+              card.style.borderColor = 'var(--4l-blue)';
+              card.classList.remove('product-highlight');
+            }, { once: true });
+          }, 600);
+        }
+      }
     });
   </script>
 
   <style>
-    @font-face {
-      font-family: 'Roboto'; font-style: normal; font-weight: 300;
-      src: url('https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc4.woff2') format('woff2');
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Roboto'; font-style: normal; font-weight: 400;
-      src: url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2') format('woff2');
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Roboto'; font-style: normal; font-weight: 700;
-      src: url('https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc4.woff2') format('woff2');
-      font-display: swap;
-    }
+    @font-face { font-family:'Roboto'; font-style:normal; font-weight:300; src:url('https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc4.woff2') format('woff2'); font-display:swap; }
+    @font-face { font-family:'Roboto'; font-style:normal; font-weight:400; src:url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2') format('woff2'); font-display:swap; }
+    @font-face { font-family:'Roboto'; font-style:normal; font-weight:700; src:url('https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc4.woff2') format('woff2'); font-display:swap; }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      font-size: 16px;
-      color: #333;
-      background: #fff;
-      -webkit-font-smoothing: antialiased;
-    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Roboto',sans-serif; font-size:16px; color:#333; background:#fff; -webkit-font-smoothing:antialiased; }
 
     :root {
-      --4l-blue: #007DE3;
-      --4l-blue-dark: #005fad;
-      --4l-yellow: #FFD242;
-      --4l-yellow-hover: rgba(255,210,66,0.9);
-      --4l-gray-bg: #f5f5f5;
-      --4l-gray-border: #e0e0e0;
-      --4l-text: #333333;
-      --4l-accent: #1a3a6b;
+      --4l-blue:#007DE3; --4l-blue-dark:#005fad;
+      --4l-yellow:#FFD242; --4l-yellow-hover:rgba(255,210,66,0.9);
+      --4l-green:#36B35F; --4l-gray-bg:#f5f5f5;
+      --4l-gray-border:#e0e0e0; --4l-text:#333333;
     }
 
-    /* ── INDIE NOTICE BAR ── */
-    .indie-notice {
-      background: #f0f7ff;
-      border-bottom: 1px solid #cce4fa;
-      padding: 6px 20px;
-      text-align: center;
-      font-size: 11px;
-      color: #555;
-    }
-    .indie-notice a { color: var(--4l-blue); }
+    .indie-notice { background:#f0f7ff; border-bottom:1px solid #cce4fa; padding:6px 20px; text-align:center; font-size:11px; color:#555; }
+    .indie-notice a { color:var(--4l-blue); }
 
-    /* ── MAIN HEADER ── */
-    #headerV2 {
-      background: #fff;
-      border-bottom: 2px solid var(--4l-gray-border);
-      position: sticky; top: 0; z-index: 200;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    .header-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 20px; height: 64px;
-    }
-    #Logo img { height: 44px; width: auto; }
+    #headerV2 { background:#fff; border-bottom:2px solid var(--4l-gray-border); position:sticky; top:0; z-index:200; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+    .header-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:0 20px; height:64px; }
+    #Logo img { height:44px; width:auto; }
+    .site-nav-area { display:flex; align-items:center; list-style:none; gap:2px; }
+    .site-nav-area li a { display:flex; align-items:center; gap:5px; font-size:13px; color:var(--4l-text); text-decoration:none; padding:7px 12px; border-radius:4px; transition:background .15s,color .15s; font-weight:400; }
+    .site-nav-area li a:hover { background:#f0f8ff; color:var(--4l-blue); }
+    .site-nav-area .shop-link a { background:var(--4l-blue); color:#fff; border-radius:4px; font-weight:700; }
+    .site-nav-area .shop-link a:hover { background:var(--4l-blue-dark); color:#fff; }
+    .mobile-menu-toggle { display:none; font-size:22px; cursor:pointer; color:#333; background:none; border:none; padding:8px; }
+    @media (max-width:860px) { .site-nav-area { display:none; } .mobile-menu-toggle { display:block; } }
 
-    .site-nav-area {
-      display: flex; align-items: center; list-style: none; gap: 2px;
-    }
-    .site-nav-area li a {
-      display: flex; align-items: center; gap: 5px;
-      font-size: 13px; color: var(--4l-text); text-decoration: none;
-      padding: 7px 12px; border-radius: 4px;
-      transition: background .15s, color .15s;
-      font-weight: 400;
-    }
-    .site-nav-area li a:hover { background: #f0f8ff; color: var(--4l-blue); }
-    .site-nav-area .shop-link a {
-      background: var(--4l-blue); color: #fff; border-radius: 4px;
-      font-weight: 700;
-    }
-    .site-nav-area .shop-link a:hover { background: var(--4l-blue-dark); color: #fff; }
-
-    .mobile-menu-toggle {
-      display: none; font-size: 22px; cursor: pointer; color: #333;
-      background: none; border: none; padding: 8px;
-    }
-    @media (max-width: 860px) {
-      .site-nav-area { display: none; }
-      .mobile-menu-toggle { display: block; }
+    #banner-saga { height:calc(100vh - 290px); min-height:380px; max-height:620px; position:relative; overflow:hidden; background:linear-gradient(135deg,#0a1628 0%,#1a3a6b 45%,#007DE3 100%); }
+    .banner-background { position:absolute; inset:0; background-image:url('https://media2.4life.com/images/banners/Desktop_TF_Max_Hero_Banner_20260430151021.webp'); background-size:cover; background-position:right bottom; opacity:0.55; }
+    .banner-overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(10,22,40,0.82) 0%,rgba(10,22,40,0.40) 55%,transparent 100%); }
+    .banner-content { position:relative; z-index:10; display:flex; align-items:center; height:100%; padding:0 8% 40px; }
+    .banner-text { max-width:520px; }
+    .banner-text h1 { font-size:32px; font-weight:700; color:#fff; line-height:1.2; margin-bottom:12px; text-shadow:0 2px 16px rgba(0,0,0,0.35); }
+    .banner-text .sub { font-size:20px; font-weight:300; color:rgba(255,255,255,0.88); margin-bottom:28px; line-height:1.4; }
+    .btn-hero { display:inline-block; background:#E06770; color:#fff; font-size:14px; font-weight:500; padding:12px 30px; border-radius:4px; text-decoration:none; transition:background .2s,transform .15s; box-shadow:0 4px 20px rgba(224,103,112,0.40); }
+    .btn-hero:hover { background:#c8555d; transform:translateY(-2px); }
+    @media (max-width:860px) {
+      #banner-saga { height:calc(100vh - 240px); min-height:320px; }
+      .banner-background { background-image:url('https://media2.4life.com/images/banners/Mobile_TF_Max_Hero_Banner_20260501095641.webp'); background-position:center bottom; opacity:0.45; }
+      .banner-overlay { background:linear-gradient(180deg,rgba(10,22,40,0.70) 0%,rgba(10,22,40,0.40) 100%); }
+      .banner-content { align-items:flex-start; padding:36px 6% 36px; justify-content:center; }
+      .banner-text { text-align:center; max-width:100%; }
+      .banner-text h1 { font-size:24px; }
+      .banner-text .sub { font-size:17px; }
     }
 
-    /* ── HERO BANNER ── */
-    #banner-saga {
-      height: calc(100vh - 290px);
-      min-height: 380px; max-height: 620px;
-      position: relative; overflow: hidden;
-      background: linear-gradient(135deg, #0a1628 0%, #1a3a6b 45%, #007DE3 100%);
-    }
-    .banner-background {
-      position: absolute; inset: 0;
-      background-image: url('https://media2.4life.com/images/banners/Desktop_TF_Max_Hero_Banner_20260430151021.webp');
-      background-size: cover; background-position: center center;
-      opacity: 0.50;
-    }
-    .banner-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(90deg, rgba(10,22,40,0.85) 0%, rgba(10,22,40,0.40) 55%, transparent 100%);
-    }
-    .banner-content {
-      position: relative; z-index: 10;
-      display: flex; align-items: center;
-      height: 100%; padding: 0 8% 40px;
-    }
-    .banner-text { max-width: 540px; }
-    .banner-text h1 {
-      font-size: 34px; font-weight: 700; color: #fff;
-      line-height: 1.2; margin-bottom: 12px;
-      text-shadow: 0 2px 16px rgba(0,0,0,0.35);
-    }
-    .banner-text .sub {
-      font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.88);
-      margin-bottom: 28px; line-height: 1.5;
-    }
-    .btn-hero {
-      display: inline-block;
-      background: var(--4l-blue); color: #fff;
-      font-size: 14px; font-weight: 700;
-      padding: 13px 34px; border-radius: 4px;
-      text-decoration: none;
-      transition: background .2s, transform .15s;
-      box-shadow: 0 4px 20px rgba(0,125,227,0.45);
-    }
-    .btn-hero:hover { background: var(--4l-blue-dark); transform: translateY(-2px); }
+    .contain-layout { max-width:1200px; margin:0 auto; }
+    .apply-padding { padding-left:20px; padding-right:20px; }
 
-    @media (max-width: 860px) {
-      #banner-saga { height: calc(100vh - 240px); min-height: 320px; }
-      .banner-background { background-position: center bottom; opacity: 0.40; }
-      .banner-overlay { background: linear-gradient(180deg, rgba(10,22,40,0.75) 0%, rgba(10,22,40,0.40) 100%); }
-      .banner-content { align-items: flex-start; padding: 36px 6% 36px; justify-content: center; }
-      .banner-text { text-align: center; max-width: 100%; }
-      .banner-text h1 { font-size: 24px; }
-      .banner-text .sub { font-size: 16px; }
-    }
+    #home_immune { padding:50px 20px 16px; text-align:center; }
+    #home_immune h1 { font-size:28px; font-weight:700; color:#333; margin-bottom:8px; }
+    #home_immune p { font-size:16px; color:#555; font-weight:300; }
 
-    /* ── LAYOUT HELPERS ── */
-    .contain-layout { max-width: 1200px; margin: 0 auto; }
-    .apply-padding { padding-left: 20px; padding-right: 20px; }
+    #home_science { padding:36px 20px 56px; }
+    #home_science .contain-layout.padded { display:flex; align-items:center; gap:44px; flex-wrap:wrap; }
+    .media-visual { flex:0 0 auto; width:45%; max-width:500px; border-radius:8px; overflow:hidden; box-shadow:0 6px 30px rgba(0,0,0,0.12); position:relative; cursor:pointer; }
+    .media-visual img { width:100%; display:block; }
+    .media-icon-play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:56px; height:56px; border-radius:50%; background:rgba(255,255,255,0.92); display:flex; align-items:center; justify-content:center; }
+    .media-icon-play::after { content:'▶'; font-size:18px; color:var(--4l-blue); margin-left:4px; }
+    .media-text { flex:1; min-width:260px; }
+    .media-text h2 { font-size:24px; font-weight:700; color:#333; margin-bottom:14px; }
+    .media-text p { font-size:13px; color:#555; line-height:1.7; margin-bottom:12px; }
+    .media-text p a { color:var(--4l-blue); }
+    .btn { display:inline-block; padding:10px 24px; border-radius:4px; text-decoration:none; font-size:13px; font-weight:500; transition:background .2s,transform .15s; cursor:pointer; border:none; }
+    .btn-science { background:var(--4l-yellow); color:#333; }
+    .btn-science:hover { background:var(--4l-yellow-hover); }
+    .trust-badges { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .trust-badge { display:flex; align-items:center; gap:6px; background:#f0f8ff; border:1px solid #cce4fa; border-radius:5px; padding:6px 11px; font-size:11px; color:#333; font-weight:500; }
+    .trust-badge-icon { font-size:13px; }
+    @media (max-width:860px) { .media-visual { width:100%; max-width:100%; } #home_science .contain-layout.padded { flex-direction:column; } }
 
-    /* ── IMMUNE SYSTEM HEADLINE ── */
-    #home_immune {
-      padding: 50px 20px 16px;
-      text-align: center;
+    #ProductPortal { padding:0 0 36px; }
+    .about-product-lines { background:var(--4l-gray-bg); padding:44px 20px 24px; text-align:center; }
+    .about-product-lines h2 { font-size:26px; font-weight:700; color:#333; margin-bottom:12px; }
+    .about-product-lines p { font-size:13px; color:#555; max-width:740px; margin:0 auto; line-height:1.7; }
+    .nub { margin:12px auto 0; text-align:center; }
+    .nub img { height:5px; }
+    .product-lines { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; padding:28px 20px 36px; }
+    .product-lines .line { background:#fff; border:1px solid var(--4l-gray-border); border-radius:10px; overflow:hidden; text-decoration:none; color:var(--4l-text); display:flex; flex-direction:column; transition:box-shadow .2s,transform .2s,border-color .2s; box-shadow:0 2px 8px rgba(0,0,0,0.06); position:relative; }
+    .product-lines .line:hover { box-shadow:0 10px 32px rgba(0,125,227,0.16); transform:translateY(-4px); border-color:var(--4l-blue); }
+    .overflow-image-container { overflow:hidden; height:150px; background:#f8f9fb; }
+    .overflow-image-container img { width:100%; height:100%; object-fit:contain; padding:8px; transition:transform .3s; }
+    .product-lines .line:hover .overflow-image-container img { transform:scale(1.06); }
+    .line-text-wrapper { padding:10px 13px 13px; flex:1; display:flex; flex-direction:column; gap:5px; }
+    .line-name { font-size:12px; font-weight:700; color:#333; line-height:1.35; }
+    .line-name sup { font-size:0.7em; }
+    .line-description { font-size:11px; color:#666; line-height:1.5; flex:1; }
+    .line-cta { display:inline-flex; align-items:center; gap:4px; margin-top:8px; font-size:11px; font-weight:700; color:var(--4l-blue); text-transform:uppercase; letter-spacing:0.04em; }
+    .line-cta::after { content:'→'; }
+    .line.browse-all { background:linear-gradient(135deg,var(--4l-blue) 0%,#005fad 100%); border:none; color:#fff; justify-content:center; align-items:center; text-align:center; gap:0; min-height:220px; }
+    .browse-all .browse-icon { font-size:36px; margin-bottom:10px; }
+    .browse-all .browse-title { font-size:15px; font-weight:700; color:#fff; margin-bottom:6px; }
+    .browse-all .browse-sub { font-size:11px; color:rgba(255,255,255,0.78); line-height:1.55; margin-bottom:14px; }
+    .browse-all .browse-btn { display:inline-block; background:var(--4l-yellow); color:#333; font-size:12px; font-weight:700; padding:8px 20px; border-radius:4px; text-decoration:none; transition:background .2s,transform .15s; }
+    .browse-all:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,0.22); }
+    .browse-all:hover .browse-btn { background:#ffe066; }
+    @keyframes cardPulse {
+      0%   { transform:translateY(0) scale(1);       box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+      20%  { transform:translateY(-8px) scale(1.03);  box-shadow:0 16px 40px rgba(0,125,227,0.35); border-color:var(--4l-blue); }
+      45%  { transform:translateY(-4px) scale(1.015); box-shadow:0 10px 24px rgba(0,125,227,0.22); }
+      65%  { transform:translateY(-7px) scale(1.025); box-shadow:0 14px 36px rgba(0,125,227,0.30); }
+      85%  { transform:translateY(-3px) scale(1.01);  box-shadow:0 8px 20px rgba(0,125,227,0.18); }
+      100% { transform:translateY(-5px) scale(1.02);  box-shadow:0 10px 28px rgba(0,125,227,0.22); border-color:var(--4l-blue); }
     }
-    #home_immune h1 {
-      font-size: 28px; font-weight: 700; color: #333;
-      margin-bottom: 8px;
-    }
-    #home_immune p {
-      font-size: 16px; color: #555; font-weight: 300;
-    }
+    .product-highlight { animation:cardPulse 0.9s ease forwards; border:2px solid var(--4l-blue) !important; z-index:10; }
+    .product-highlight::before { content:'👆 Für dich hervorgehoben'; position:absolute; top:8px; left:50%; transform:translateX(-50%); background:var(--4l-blue); color:#fff; font-size:10px; font-weight:700; letter-spacing:0.03em; padding:3px 10px; border-radius:20px; white-space:nowrap; z-index:20; box-shadow:0 2px 8px rgba(0,0,0,0.18); }
+    @media (max-width:1100px) { .product-lines { grid-template-columns:repeat(3,1fr); } }
+    @media (max-width:700px)  { .product-lines { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:440px)  { .product-lines { grid-template-columns:1fr; } }
 
-    /* ── SCIENCE SECTION ── */
-    #home_science { padding: 36px 20px 56px; }
-    #home_science .contain-layout.padded {
-      display: flex; align-items: center; gap: 44px; flex-wrap: wrap;
-    }
-    .media-visual {
-      flex: 0 0 auto; width: 45%; max-width: 500px;
-      border-radius: 8px; overflow: hidden;
-      box-shadow: 0 6px 30px rgba(0,0,0,0.12);
-      position: relative; cursor: pointer;
-    }
-    .media-visual img { width: 100%; display: block; }
-    .media-icon-play {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      width: 56px; height: 56px; border-radius: 50%;
-      background: rgba(255,255,255,0.92);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .media-icon-play::after {
-      content: '▶'; font-size: 18px; color: var(--4l-blue); margin-left: 4px;
-    }
-    .media-text { flex: 1; min-width: 260px; }
-    .media-text h2 { font-size: 24px; font-weight: 700; color: #333; margin-bottom: 14px; }
-    .media-text p { font-size: 13px; color: #555; line-height: 1.7; margin-bottom: 12px; }
-    .media-text p a { color: var(--4l-blue); }
-    .btn { display: inline-block; padding: 10px 24px; border-radius: 4px; text-decoration: none; font-size: 13px; font-weight: 500; transition: background .2s, transform .15s; cursor: pointer; border: none; }
-    .btn-science { background: var(--4l-yellow); color: #333; }
-    .btn-science:hover { background: var(--4l-yellow-hover); }
+    #signup-widget { background:linear-gradient(135deg,#0a1628 0%,#007DE3 100%); padding:52px 20px; }
+    .benefits-holder { max-width:780px; margin:0 auto; }
+    .benefits { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:10px; padding:40px 44px; }
+    .benefit-header { font-size:24px; font-weight:700; color:#fff; text-align:center; margin-bottom:14px; }
+    .benefit-divider { width:52px; height:3px; background:var(--4l-yellow); margin:0 auto 24px; border-radius:2px; }
+    .benefit-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
+    .benefit-item { display:flex; align-items:flex-start; gap:12px; font-size:13px; color:rgba(255,255,255,0.88); line-height:1.55; }
+    .benefit-item strong, .benefit-item b { color:#fff; font-weight:700; }
+    .checkmark-circle { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:var(--4l-yellow); display:flex; align-items:center; justify-content:center; margin-top:1px; }
+    .checkmark-circle::after { content:'✓'; font-size:12px; color:#333; font-weight:700; }
+    .cta-container { display:flex; gap:16px; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:30px; }
+    .create-account-btn { background:var(--4l-yellow); color:#333; font-size:14px; font-weight:700; padding:12px 32px; border:none; border-radius:4px; cursor:pointer; text-decoration:none; display:inline-block; transition:background .2s,transform .15s; }
+    .create-account-btn:hover { background:var(--4l-yellow-hover); transform:translateY(-2px); }
+    .learn-more-link { color:rgba(255,255,255,0.80); font-size:13px; text-decoration:underline; }
+    .learn-more-link:hover { color:#fff; }
+    @media (max-width:600px) { .benefits { padding:28px 20px; } .benefit-header { font-size:20px; } }
 
-    .trust-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .trust-badge {
-      display: flex; align-items: center; gap: 6px;
-      background: #f0f8ff; border: 1px solid #cce4fa;
-      border-radius: 5px; padding: 6px 11px;
-      font-size: 11px; color: #333; font-weight: 500;
-    }
-    .trust-badge-icon { font-size: 13px; }
-
-    @media (max-width: 860px) {
-      .media-visual { width: 100%; max-width: 100%; }
-      #home_science .contain-layout.padded { flex-direction: column; }
-    }
-
-    /* ── PRODUCT PORTAL ── */
-    #ProductPortal { padding: 0 0 36px; }
-    .about-product-lines {
-      background: var(--4l-gray-bg);
-      padding: 44px 20px 24px;
-      text-align: center;
-    }
-    .about-product-lines h2 { font-size: 26px; font-weight: 700; color: #333; margin-bottom: 12px; }
-    .about-product-lines p { font-size: 13px; color: #555; max-width: 740px; margin: 0 auto; line-height: 1.7; }
-    .nub { margin: 12px auto 0; text-align: center; }
-    .nub img { height: 5px; }
-
-    .product-lines {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      padding: 28px 20px 36px;
-    }
-    .product-lines .line {
-      background: #fff;
-      border: 1px solid var(--4l-gray-border);
-      border-radius: 8px; overflow: hidden;
-      text-decoration: none; color: var(--4l-text);
-      display: flex; flex-direction: column;
-      transition: box-shadow .2s, transform .2s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .product-lines .line:hover {
-      box-shadow: 0 8px 28px rgba(0,125,227,0.14);
-      transform: translateY(-4px);
-    }
-    .overflow-image-container { overflow: hidden; height: 140px; }
-    .overflow-image-container img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
-    .product-lines .line:hover .overflow-image-container img { transform: scale(1.04); }
-    .line-text-wrapper { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 5px; }
-    .line-name { font-size: 12px; font-weight: 700; color: #333; line-height: 1.3; }
-    .line-name sup { font-size: 0.7em; }
-    .line-description { font-size: 11px; color: #666; line-height: 1.5; flex: 1; }
-    .line-arrow { color: var(--4l-blue); font-size: 13px; align-self: flex-end; font-style: normal; }
-
-    @media (max-width: 1024px) { .product-lines { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 700px)  { .product-lines { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 440px)  { .product-lines { grid-template-columns: 1fr; } }
-
-    /* ── PREFERRED CUSTOMERS ── */
-    #signup-widget {
-      background: linear-gradient(135deg, #0a1628 0%, #007DE3 100%);
-      padding: 52px 20px;
-    }
-    .benefits-holder { max-width: 780px; margin: 0 auto; }
-    .benefits {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 10px; padding: 40px 44px;
-    }
-    .benefit-header { font-size: 24px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 14px; }
-    .benefit-divider { width: 52px; height: 3px; background: var(--4l-yellow); margin: 0 auto 24px; border-radius: 2px; }
-    .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .benefit-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: 13px; color: rgba(255,255,255,0.88); line-height: 1.55;
-    }
-    .benefit-item strong, .benefit-item b { color: #fff; font-weight: 700; }
-    .checkmark-circle {
-      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
-      background: var(--4l-yellow);
-      display: flex; align-items: center; justify-content: center; margin-top: 1px;
-    }
-    .checkmark-circle::after { content: '✓'; font-size: 12px; color: #333; font-weight: 700; }
-    .cta-container { display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
-    .create-account-btn {
-      background: var(--4l-yellow); color: #333;
-      font-size: 14px; font-weight: 700; padding: 12px 32px;
-      border: none; border-radius: 4px; cursor: pointer; text-decoration: none;
-      display: inline-block; transition: background .2s, transform .15s;
-    }
-    .create-account-btn:hover { background: var(--4l-yellow-hover); transform: translateY(-2px); }
-    .learn-more-link { color: rgba(255,255,255,0.80); font-size: 13px; text-decoration: underline; }
-    .learn-more-link:hover { color: #fff; }
-
-    @media (max-width: 600px) {
-      .benefits { padding: 28px 20px; }
-      .benefit-header { font-size: 20px; }
-    }
-
-    /* ── FOOTER ── */
-    #footer { background: #1a1a2e; }
-    .footer-bottom { padding: 20px 20px 14px; }
-    .footer-bottom .contain-layout { max-width: 1200px; margin: 0 auto; }
-    .footer-bottom p { font-size: 10px; color: rgba(255,255,255,0.38); line-height: 1.7; margin-bottom: 5px; }
-    .footer-bottom p a { color: rgba(255,255,255,0.52); }
-    .footer-bottom .copy { font-size: 11px; color: rgba(255,255,255,0.52); margin-bottom: 8px; }
-
-    sup { font-size: 0.65em; vertical-align: super; }
-    a { color: inherit; }
+    #footer { background:#1a1a2e; }
+    .footer-bottom { padding:20px 20px 14px; }
+    .footer-bottom .contain-layout { max-width:1200px; margin:0 auto; }
+    .footer-bottom p { font-size:10px; color:rgba(255,255,255,0.38); line-height:1.7; margin-bottom:5px; }
+    .footer-bottom p a { color:rgba(255,255,255,0.52); }
+    .footer-bottom .copy { font-size:11px; color:rgba(255,255,255,0.52); margin-bottom:8px; }
+    sup { font-size:0.65em; vertical-align:super; }
+    a { color:inherit; }
   </style>
 </head>
 <body>
 
-<!-- ── INDEPENDENT NOTICE ── -->
 <div class="indie-notice">
   Unabhängiger 4Life-Vertriebspartner — Produkte über die offizielle Website
-  <a href="#" data-4l="/shop/ReadyShopping" target="_blank" rel="noopener">germany.4life.com</a>
+  <a href="#" data-4l="/shop/all" target="_blank" rel="noopener">germany.4life.com</a>
 </div>
 
-<!-- ── HEADER ── -->
 <header id="headerV2">
   <div class="header-inner">
     <div id="Logo">
       <a href="#" data-4l="" target="_blank" rel="noopener">
-        <img src="https://media2.4life.com/images/logos/Blue_Logo_Primary_v2a_ENG.svg" alt="4Life - Das Immunsystem-Unternehmen®" />
+        <img src="https://media2.4life.com/images/logos/Blue_Logo_Primary_v2a_ENG.svg" alt="4Life - The Immune System Company®" />
       </a>
     </div>
     <nav>
@@ -354,8 +236,8 @@
         <li><a href="#ProductPortal">Produkte</a></li>
         <li><a href="#signup-widget">Mitglied werden</a></li>
         <li class="shop-link">
-          <a href="#" data-4l="/shop/ReadyShopping" target="_blank" rel="noopener"
-             onclick="gtag('event', 'click', {'event_category':'outbound','event_label':'Nav_Shop'});">🛒 Shop</a>
+          <a href="#" data-4l="/shop/all" target="_blank" rel="noopener"
+             onclick="gtag('event','click',{'event_category':'outbound','event_label':'Nav_Shop'});">🛒 Shop</a>
         </li>
       </ul>
     </nav>
@@ -364,7 +246,6 @@
   </div>
 </header>
 
-<!-- ── HERO ── -->
 <section id="banner-saga">
   <div class="banner-background"></div>
   <div class="banner-overlay"></div>
@@ -373,12 +254,11 @@
       <h1>Stärke dein Immunsystem – wissenschaftlich belegt</h1>
       <p class="sub">Transfer Factor Max – die nächste Generation der Immununterstützung ist da</p>
       <a class="btn-hero" href="#" data-4l="/page/169/tf-max" target="_blank" rel="noopener"
-         onclick="gtag('event', 'click', {'event_category':'outbound','event_label':'Hero_Discover_Max'});">Jetzt entdecken</a>
+         onclick="gtag('event','click',{'event_category':'outbound','event_label':'Hero_Discover_Max'});">Jetzt entdecken</a>
     </div>
   </div>
 </section>
 
-<!-- ── HEADLINE ── -->
 <section id="home_immune">
   <div class="contain-layout">
     <h1>Das Immunsystem-Unternehmen<sup>®</sup></h1>
@@ -386,171 +266,136 @@
   </div>
 </section>
 
-<!-- ── SCIENCE ── -->
 <section id="home_science">
   <div class="contain-layout padded">
     <div class="media-visual">
       <a href="https://www.youtube.com/watch?v=MGZwqJo1AY0" target="_blank" rel="noopener">
-        <img src="https://media2.4life.com/images/pageBuilder/4life_trusted_science_20250331194421.jpg" alt="4Life Wissenschaft" />
+        <img src="https://media2.4life.com/images/pageBuilder/4life_trusted_science_20250331194421.jpg" alt="4Life Science" />
         <div class="media-icon-play"></div>
       </a>
     </div>
     <div class="media-text">
       <h2>Wissenschaft, der du vertrauen kannst</h2>
       <p>Hilf deinem Körper, potenzielle Gesundheitsbedrohungen zu erkennen, darauf zu reagieren und sie zu behalten – mit 4Life Transfer Factor<sup>®</sup>, das klinisch nachgewiesen das Immunsystem <strong>innerhalb von zwei Stunden aktiviert!</strong><sup>*1</sup></p>
-      <p>Entdecke die <strong><a href="#" data-4l="/page/47/studies-and-publications" target="_blank" rel="noopener">von Fachleuten geprüften Veröffentlichungen, unabhängige und interne Studien</a></strong> sowie die <strong><a href="#" data-4l="/page/126/global-patents" target="_blank" rel="noopener">Patente von 4Life</a></strong>.</p>
+      <p>Entdecke die <strong><a href="#" data-4l="/page/47/studies-and-publications" target="_blank" rel="noopener">von Fachleuten geprüften Veröffentlichungen, unabhängige und interne Studien</a></strong> sowie die <strong><a href="#" data-4l="/page/126/global-patents" target="_blank" rel="noopener">Patente von 4Life</a></strong>.
+      </p>
       <br>
       <a href="#" data-4l="/page/69/transferfactor" target="_blank" rel="noopener" class="btn btn-science"
-         onclick="gtag('event', 'click', {'event_category':'outbound','event_label':'Science_Transfer_Factors'});">
+         onclick="gtag('event','click',{'event_category':'outbound','event_label':'Science_Transfer_Factors'});">
         Was sind Transferfaktoren?
       </a>
       <div class="trust-badges">
-        <div class="trust-badge"><span class="trust-badge-icon">🏆</span> BBB A+ Bewertung</div>
-        <div class="trust-badge"><span class="trust-badge-icon">🔬</span> 25+ Patente</div>
-        <div class="trust-badge"><span class="trust-badge-icon">✅</span> NSF-Zertifiziert</div>
-        <div class="trust-badge"><span class="trust-badge-icon">↩️</span> 60-Tage-Garantie</div>
+        <div class="trust-badge"><span class="trust-badge-icon">🏆</span> BBB A+ Rated</div>
+        <div class="trust-badge"><span class="trust-badge-icon">🔬</span> 25+ Patents</div>
+        <div class="trust-badge"><span class="trust-badge-icon">✅</span> NSF Certified</div>
+        <div class="trust-badge"><span class="trust-badge-icon">↩️</span> 60-Day Guarantee</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── PRODUCT PORTAL ── -->
 <section id="ProductPortal">
   <div class="about-product-lines">
     <div class="contain-layout apply-padding">
       <h2>4Life Produkte</h2>
-      <div class="nub">
-        <img src="https://media2.4life.com/images/icons/section-header-pill_gray.svg" alt="" />
-      </div>
+      <div class="nub"><img src="https://media2.4life.com/images/icons/section-header-pill_gray.svg" alt="" /></div>
       <p>Wenn du dich gesund fühlst, kannst du dein bestes Leben führen. Dafür brauchst du ein wachsames Immunsystem. Deshalb treffen Menschen die kluge Entscheidung für 4Life Transfer Factor Produkte. 4Life bietet zahlreiche Darreichungsformen, darunter Kapseln, Kautabletten, Saftgetränke, Pulver und topische Produkte.*</p>
     </div>
   </div>
-
   <div class="product-lines contain-layout apply-padding">
-    <a class="line" href="#" data-4l="/page/45/transferfactorcore2" target="_blank" rel="noopener">
-      <div class="overflow-image-container">
-        <img src="https://media2.4life.com/images/products/productportals/TFCore.jpg" alt="Transfer Factor Immununterstützung" />
-      </div>
-      <div class="line-text-wrapper">
-        <h4 class="line-name">Transfer Factor Immununterstützung</h4>
-        <i class="line-arrow">→</i>
-        <div class="line-description">Kolostrum-basierte Immunsystemunterstützung*</div>
-      </div>
+
+    <a class="line" id="prod-tf-max-convention-special" href="#" data-4l="/product/tf-max-convention-special/4604" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TF_Max_Convention_Special'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/Max_pack_20260406155450.webp?width=450&mode=crop&quality=80" alt="TF Max Convention Special" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">TF Max Convention Special</h4><div class="line-description">Exclusive convention package featuring the future of immune support*</div><span class="line-cta">Shop now</span></div>
     </a>
-    <a class="line" href="#" data-4l="/page/12/digest4life" target="_blank" rel="noopener">
-      <div class="overflow-image-container">
-        <img src="https://media2.4life.com/images/products/productportals/Digest.jpg" alt="Digest4Life" />
-      </div>
-      <div class="line-text-wrapper">
-        <h4 class="line-name">Digest4Life<sup>®</sup></h4>
-        <i class="line-arrow">→</i>
-        <div class="line-description">Unterstützung für die Darmgesundheit und das Immunsystem*</div>
-      </div>
+
+    <a class="line" id="prod-energy-berry" href="#" data-4l="/product/energy-berry/1629" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_EnergyBerry'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_gostix_berry_us.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_1629.jpg'" alt="Energy Berry" loading="lazy" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">Energy Berry</h4><div class="line-description">Natural energy blend with Transfer Factor support*</div><span class="line-cta">Shop now</span></div>
     </a>
-    <a class="line" href="#" data-4l="/page/10/transformproductportal" target="_blank" rel="noopener">
-      <div class="overflow-image-container">
-        <img src="https://media2.4life.com/images/products/productportals/transform.jpg" alt="4LifeTransform" />
-      </div>
-      <div class="line-text-wrapper">
-        <h4 class="line-name">4LifeTransform<sup>®</sup></h4>
-        <i class="line-arrow">→</i>
-        <div class="line-description">Muskelaufbau, Gewichtsmanagement oder mehr Vitalität*</div>
-      </div>
+
+    <a class="line" id="prod-transfer-factor-plus-tri-factor" href="#" data-4l="/product/transfer-factor-plus-tri-factor/89" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TFPlus'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/TFPlus.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_89.jpg'" alt="Transfer Factor Plus Tri-Factor Formula" loading="lazy" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">Transfer Factor Plus Tri-Factor<sup>®</sup></h4><div class="line-description">Advanced immune system support with Tri-Factor Formula*</div><span class="line-cta">Shop now</span></div>
     </a>
-    <a class="line" href="#" data-4l="/page/13/riovida-antioxidants" target="_blank" rel="noopener">
-      <div class="overflow-image-container">
-        <img src="https://media2.4life.com/images/products/productportals/RioVida2.jpg" alt="RioVida" />
-      </div>
-      <div class="line-text-wrapper">
-        <h4 class="line-name">RioVida<sup>®</sup></h4>
-        <i class="line-arrow">→</i>
-        <div class="line-description">Antioxidative Superfrüchte mit 4Life Transfer Factor<sup>®</sup>*</div>
-      </div>
+
+    <a class="line" id="prod-transfer-factor-riovida" href="#" data-4l="/product/transfer-factor-riovida/93" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_RioVida'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_riovida_juice_us.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_93.jpg'" alt="Transfer Factor RioVida" loading="lazy" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">Transfer Factor RioVida<sup>®</sup></h4><div class="line-description">Antioxidant-rich superfruit juice with Transfer Factor*</div><span class="line-cta">Shop now</span></div>
     </a>
-    <a class="line" href="#" data-4l="/page/15/targetedtransferfactor" target="_blank" rel="noopener">
-      <div class="overflow-image-container">
-        <img src="https://media2.4life.com/images/products/productportals/Targeted.jpg" alt="Targeted Transfer Factor" />
-      </div>
-      <div class="line-text-wrapper">
-        <h4 class="line-name">Targeted Transfer Factor<sup>®</sup></h4>
-        <i class="line-arrow">→</i>
-        <div class="line-description">Gezielte Unterstützung für deinen Körper*</div>
-      </div>
+
+    <a class="line" id="prod-pro-tf-chocolate" href="#" data-4l="/product/pro-tf-chocolate/662" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_ProTFChocolate'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_pro_tf_choc_us.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_662.jpg'" alt="Pro-TF Chocolate" loading="lazy" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">Pro-TF<sup>®</sup> Chocolate</h4><div class="line-description">High-protein meal replacement shake with Transfer Factor*</div><span class="line-cta">Shop now</span></div>
     </a>
-    <a class="line" href="#" data-4l="/page/55/4lifeelementsbrandportal" target="_blank" rel="noopener">
-      <div class="overflow-image-container">
-        <img src="https://media2.4life.com/images/products/productportals/4LifeElements.jpg" alt="4LifeElements" />
-      </div>
-      <div class="line-text-wrapper">
-        <h4 class="line-name">4LifeElements<sup>®</sup></h4>
-        <i class="line-arrow">→</i>
-        <div class="line-description">Einzigartige mineralbasierte Lösungen aus der Natur für dein Leben</div>
-      </div>
+
+    <a class="line" id="prod-transfer-factor-collagen" href="#" data-4l="/product/transfer-factor-collagen/1533" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TFCollagen'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_collagen_US_ENG.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_1533.jpg'" alt="Transfer Factor Collagen" loading="lazy" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">Transfer Factor Collagen</h4><div class="line-description">Collagen + immune support for skin, joints, and vitality*</div><span class="line-cta">Shop now</span></div>
     </a>
-    <a class="line" href="#" data-4l="/page/97/ritestartnutritionsupplementproducts" target="_blank" rel="noopener">
-      <div class="overflow-image-container">
-        <img src="https://media2.4life.com/images/products/productportals/4life-ritestart.jpg" alt="RiteStart" />
-      </div>
-      <div class="line-text-wrapper">
-        <h4 class="line-name">RiteStart<sup>®</sup></h4>
-        <i class="line-arrow">→</i>
-        <div class="line-description">Alles-in-einem tägliches Nahrungsergänzungspaket*</div>
-      </div>
+
+    <a class="line" id="prod-transfer-factor-classic" href="#" data-4l="/product/transfer-factor-classic/79" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TFClassic'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/Classic.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_79.jpg'" alt="Transfer Factor Classic" loading="lazy" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">Transfer Factor Classic</h4><div class="line-description">The original colostrum-based immune support formula*</div><span class="line-cta">Shop now</span></div>
     </a>
-    <a class="line" href="#" data-4l="/page/11/akwa" target="_blank" rel="noopener">
-      <div class="overflow-image-container">
-        <img src="https://media2.4life.com/images/products/productportals/Akwa.jpg" alt="äKwä" />
-      </div>
-      <div class="line-text-wrapper">
-        <h4 class="line-name">äKwä<sup>®</sup></h4>
-        <i class="line-arrow">→</i>
-        <div class="line-description">Makellose, zeitlose und mühelose Hautpflege</div>
-      </div>
+
+    <a class="line" id="prod-nutrastart-blue-vanilla" href="#" data-4l="/product/nutrastart-blue-vanilla/3033" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_NutraStart'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_nutrastart_blue_vanilla_us.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_3033.jpg'" alt="NutraStart Blue Vanilla" loading="lazy" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">NutraStart<sup>®</sup> Blue Vanilla</h4><div class="line-description">Nutritional shake for a balanced, energising start to your day*</div><span class="line-cta">Shop now</span></div>
     </a>
+
+    <a class="line" id="prod-transfer-factor-chewable" href="#" data-4l="/product/transfer-factor-chewable/78" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TFChewable'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/Chewable.webp?width=450&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_78.jpg'" alt="Transfer Factor Chewable" loading="lazy" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">Transfer Factor Chewable</h4><div class="line-description">Kid-friendly chewable immune system support*</div><span class="line-cta">Shop now</span></div>
+    </a>
+
+    <a class="line" id="prod-belle-vie" href="#" data-4l="/product/belle-vie/75" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_BelleVie'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_bellevie_us.webp?width=450&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_75.jpg'" alt="Belle Vie" loading="lazy" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">Belle Vie<sup>®</sup></h4><div class="line-description">Women's wellness formula with hormone and immune support*</div><span class="line-cta">Shop now</span></div>
+    </a>
+
+    <a class="line" id="prod-renuvo" href="#" data-4l="/product/renuvo/423" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_Renuvo'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_renuvo_us.webp?width=450&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_423.jpg'" alt="Renuvo" loading="lazy" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">Renuvo<sup>®</sup></h4><div class="line-description">Anti-aging cellular renewal and immune support*</div><span class="line-cta">Shop now</span></div>
+    </a>
+
+    <a class="line" id="prod-product-packs" href="#" data-4l="/shop/07-product-packs" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_Packs'});">
+      <div class="overflow-image-container"><img src="https://media2.4life.com/images/products/productportals/TFCore.jpg" alt="Product Packs" loading="lazy" /></div>
+      <div class="line-text-wrapper"><h4 class="line-name">Product Packs</h4><div class="line-description">Bundled value packs — save more when you buy together*</div><span class="line-cta">View packs</span></div>
+    </a>
+
+    <a class="line browse-all" id="prod-shop-all" href="#" data-4l="/shop/all" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_ShopAll'});">
+      <div class="browse-icon">🛒</div>
+      <div class="browse-title">Browse the Full Shop</div>
+      <div class="browse-sub">100+ products for immune health, energy, beauty, and more</div>
+      <span class="browse-btn">Shop All Products</span>
+    </a>
+
   </div>
 </section>
 
-<!-- ── PREFERRED CUSTOMERS ── -->
 <section id="signup-widget">
   <div class="benefits-holder">
     <div class="benefits">
       <h2 class="benefit-header">Vorzugskunden sparen richtig viel</h2>
       <div class="benefit-divider"></div>
       <ul class="benefit-list">
-        <li class="benefit-item">
-          <div class="checkmark-circle"></div>
-          <span><strong>Zufriedenheitsgarantie</strong> – 60 Tage Geld-zurück-Garantie</span>
-        </li>
-        <li class="benefit-item">
-          <div class="checkmark-circle"></div>
-          <span><strong>20 % oder mehr sparen!</strong> – Genieße Großhandelspreise</span>
-        </li>
-        <li class="benefit-item">
-          <div class="checkmark-circle"></div>
-          <span><strong>Treueprogramm-Vorteile</strong> – Sammle Treuepunkte und tausche sie gegen Produkte deiner Wahl ein</span>
-        </li>
-        <li class="benefit-item">
-          <div class="checkmark-circle"></div>
-          <span><strong>Weiterverkaufsgewinn</strong> – Kaufe 4Life-Produkte und verkaufe sie mit Gewinn weiter</span>
-        </li>
-        <li class="benefit-item">
-          <div class="checkmark-circle"></div>
-          <span><b>Teile, was du liebst</b> – Verdiene 25 % Cashback, wenn du 4Life-Produkte mit anderen teilst</span>
-        </li>
+        <li class="benefit-item"><div class="checkmark-circle"></div><span><b>Zufriedenheitsgarantie</b> – 60 Tage Geld-zurück-Garantie</span></li>
+        <li class="benefit-item"><div class="checkmark-circle"></div><span><strong>20 % oder mehr sparen!</strong> – Genieße Großhandelspreise</span></li>
+        <li class="benefit-item"><div class="checkmark-circle"></div><span><strong>Treueprogramm-Vorteile</strong> – Sammle Treuepunkte und tausche sie gegen Produkte deiner Wahl ein</span></li>
+        <li class="benefit-item"><div class="checkmark-circle"></div><span><strong>Weiterverkaufsgewinn</strong> – Kaufe 4Life-Produkte und verkaufe sie mit Gewinn weiter</span></li>
+        <li class="benefit-item"><div class="checkmark-circle"></div><span><b>Teile, was du liebst</b> – Verdiene 25 % Cashback, wenn du 4Life-Produkte mit anderen teilst</span></li>
       </ul>
       <div class="cta-container">
         <a class="create-account-btn" href="#" data-4l="/signup/pc" target="_blank" rel="noopener"
-           onclick="gtag('event', 'click', {'event_category':'outbound','event_label':'Signup_Preferred_Customer'});">
-          Jetzt anmelden!
-        </a>
+           onclick="gtag('event','click',{'event_category':'outbound','event_label':'Signup_Preferred_Customer'});">Jetzt anmelden!</a>
         <a class="learn-more-link" href="#" data-4l="/join-us" target="_blank" rel="noopener"
-           onclick="gtag('event', 'click', {'event_category':'outbound','event_label':'Signup_Learn_More'});">Mehr erfahren</a>
+           onclick="gtag('event','click',{'event_category':'outbound','event_label':'Signup_Learn_More'});">Mehr erfahren</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
 <div id="footer">
   <section class="footer-bottom">
     <div class="contain-layout">
