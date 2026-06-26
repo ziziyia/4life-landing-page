@@ -107,10 +107,10 @@
         });
     }
 
-    fetch("https://ipapi.co/json/")
+    fetch("https://freeipapi.com/api/json")
       .then(function(res) { return res.json(); })
       .then(function(data) {
-        var code = (data && data.country_code) ? data.country_code.toUpperCase() : null;
+        var code = (data && data.countryCode) ? data.countryCode.toUpperCase() : null;
         loadCountryPage(code);
       })
       .catch(function() { loadCountryPage(null); });
