@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es-EC">
 <head>
 
@@ -46,9 +46,6 @@
       document.head.appendChild(s);
       gtag('js', new Date());
       gtag('config', CFG.GTAG_ID);
-
-      /* Fire Ads conversion */
-      fireAdsConversion();
 
       /* Inject distributor links */
       document.querySelectorAll('[data-4l]').forEach(function(el) {
@@ -220,13 +217,13 @@
 
 <div class="indie-notice">
   Distribuidor Independiente de 4Life — Productos vendidos a través del sitio oficial
-  <a href="#" data-4l="/shop/all" target="_blank" rel="noopener">ecuador.4life.com</a>
+  <a href="#" data-4l="/shop/all" target="_blank" rel="noopener" onclick="fireAdsConversion();">ecuador.4life.com</a>
 </div>
 
 <header id="headerV2">
   <div class="header-inner">
     <div id="Logo">
-      <a href="#" data-4l="" target="_blank" rel="noopener">
+      <a href="#" data-4l="" target="_blank" rel="noopener" onclick="fireAdsConversion();">
         <img src="https://media2.4life.com/images/logos/Blue_Logo_Primary_v2a_ENG.svg" alt="4Life - The Immune System Company®" />
       </a>
     </div>
@@ -237,7 +234,7 @@
         <li><a href="#signup-widget">Únete</a></li>
         <li class="shop-link">
           <a href="#" data-4l="/shop/all" target="_blank" rel="noopener"
-             onclick="gtag('event','click',{'event_category':'outbound','event_label':'Nav_Shop'});">🛒 Comprar</a>
+             onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Nav_Shop'});">🛒 Comprar</a>
         </li>
       </ul>
     </nav>
@@ -254,7 +251,7 @@
       <h1>Tu mejor vida comienza con una salud fuerte</h1>
       <p class="sub">Descubre los productos 4Life Transfer Factor respaldados por la ciencia</p>
       <a class="btn-hero" href="#" data-4l="/page/154/life-pays" target="_blank" rel="noopener"
-         onclick="gtag('event','click',{'event_category':'outbound','event_label':'Hero_Empieza_Hoy'});">Empieza hoy</a>
+         onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Hero_Empieza_Hoy'});">Empieza hoy</a>
     </div>
   </div>
 </section>
@@ -277,11 +274,11 @@
     <div class="media-text">
       <h2>Ciencia en la que puedes confiar</h2>
       <p>Ayuda a tu cuerpo a reconocer, responder y recordar posibles amenazas a la salud con 4Life Transfer Factor<sup>®</sup>: una molécula de memoria del sistema inmunológico que está <strong>clínicamente probada para activar el sistema inmunológico en dos horas!</strong><sup>*1</sup></p>
-      <p>Consulta las <strong><a href="#" data-4l="/page/47/studies-and-publications" target="_blank" rel="noopener">publicaciones revisadas por expertos, estudios independientes e internos</a></strong> y las <strong><a href="#" data-4l="/page/126/global-patents" target="_blank" rel="noopener">patentes de 4Life</a></strong>.
+      <p>Consulta las <strong><a href="#" data-4l="/page/47/studies-and-publications" target="_blank" rel="noopener" onclick="fireAdsConversion();">publicaciones revisadas por expertos, estudios independientes e internos</a></strong> y las <strong><a href="#" data-4l="/page/126/global-patents" target="_blank" rel="noopener" onclick="fireAdsConversion();">patentes de 4Life</a></strong>.
       </p>
       <br>
       <a href="#" data-4l="/page/69/transferfactor" target="_blank" rel="noopener" class="btn btn-science"
-         onclick="gtag('event','click',{'event_category':'outbound','event_label':'Science_Transfer_Factors'});">
+         onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Science_Transfer_Factors'});">
         ¿Qué son los factores de transferencia?
       </a>
       <div class="trust-badges">
@@ -305,7 +302,7 @@
   <div class="product-lines contain-layout apply-padding">
 
 
-    <a class="line" id="prod-paquete-acelerado-fundamental" href="#" data-4l="/product/paquete-acelerado---fundamental-ecuador/3701" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_PaqueteAceleradoFundamental'});">
+    <a class="line" id="prod-paquete-acelerado-fundamental" href="#" data-4l="/product/paquete-acelerado---fundamental-ecuador/3701" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_PaqueteAceleradoFundamental'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/paquete_acelerado_fundamental.webp?width=450&mode=crop&quality=80" alt="Paquete Acelerado - Fundamental" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Paquete Acelerado - Fundamental</h4>
@@ -320,7 +317,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-paquete-acelerado-completo" href="#" data-4l="/product/paquete-acelerado---completo---ecuador/4144" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_PaqueteAceleradoCompleto'});">
+    <a class="line" id="prod-paquete-acelerado-completo" href="#" data-4l="/product/paquete-acelerado---completo---ecuador/4144" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_PaqueteAceleradoCompleto'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/paquete_acelerado_completo.webp?width=450&mode=crop&quality=80" alt="Paquete Acelerado - Completo" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Paquete Acelerado - Completo</h4>
@@ -335,7 +332,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-digest-pack" href="#" data-4l="/product/digest-pack-ecuador/4683" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_DigestPack'});">
+    <a class="line" id="prod-digest-pack" href="#" data-4l="/product/digest-pack-ecuador/4683" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_DigestPack'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_paquete_digest.webp?width=450&mode=crop&quality=80" alt="Digest Pack" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Digest Pack</h4>
@@ -350,7 +347,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-plus-tri-factor" href="#" data-4l="/product/transfer-factor-plus-tri-factor/89" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TFPlus'});">
+    <a class="line" id="prod-transfer-factor-plus-tri-factor" href="#" data-4l="/product/transfer-factor-plus-tri-factor/89" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_TFPlus'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_plus_nueva_imagen.jpg?width=450&mode=crop&quality=80" alt="Transfer Factor Plus Tri-Factor" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Transfer Factor Plus Tri-Factor</h4>
@@ -365,7 +362,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-tri-factor" href="#" data-4l="/product/transfer-factor-tri-factor/95" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TriFactor'});">
+    <a class="line" id="prod-transfer-factor-tri-factor" href="#" data-4l="/product/transfer-factor-tri-factor/95" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_TriFactor'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/ecuador-trifactor.jpg?width=450&mode=crop&quality=80" alt="4Life Transfer Factor Tri-Factor Formula" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">4Life Transfer Factor Tri-Factor Formula</h4>
@@ -380,7 +377,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-bcv" href="#" data-4l="/product/transfer-factor-cardio/77" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_BCV'});">
+    <a class="line" id="prod-transfer-factor-bcv" href="#" data-4l="/product/transfer-factor-cardio/77" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_BCV'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/4Life_BCV_Ecuador_1_20250411114828.jpg?width=450&mode=crop&quality=80" alt="4Life Transfer Factor BCV" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">4Life Transfer Factor BCV</h4>
@@ -395,7 +392,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-renuvo" href="#" data-4l="/product/tf-renuvo-each/1128" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_Renuvo'});">
+    <a class="line" id="prod-renuvo" href="#" data-4l="/product/tf-renuvo-each/1128" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_Renuvo'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/ecuador-new-renuvo.jfif?width=450&mode=crop&quality=80" alt="Renuvo" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Renuvo</h4>
@@ -410,7 +407,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-belle-vie" href="#" data-4l="/product/transfer-factor-bellevie/2043" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_BelleVie'});">
+    <a class="line" id="prod-transfer-factor-belle-vie" href="#" data-4l="/product/transfer-factor-bellevie/2043" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_BelleVie'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_belle_vie_new_image.jpg?width=450&mode=crop&quality=80" alt="Transfer Factor Belle Vie" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Transfer Factor Belle Vie</h4>
@@ -425,7 +422,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-glucoach" href="#" data-4l="/product/transfer-factor-glucoach/81" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_GluCoach'});">
+    <a class="line" id="prod-transfer-factor-glucoach" href="#" data-4l="/product/transfer-factor-glucoach/81" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_GluCoach'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador-glucoach-new.jpg?width=450&mode=crop&quality=80" alt="4Life Transfer Factor GluCoach" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">4Life Transfer Factor GluCoach</h4>
@@ -440,7 +437,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-recall" href="#" data-4l="/product/transfer-factor-recall-ecuador/2212" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_ReCall'});">
+    <a class="line" id="prod-transfer-factor-recall" href="#" data-4l="/product/transfer-factor-recall-ecuador/2212" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_ReCall'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/ecuador-new-recall.jfif?width=450&mode=crop&quality=80" alt="Transfer Factor Recall" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Transfer Factor Recall</h4>
@@ -455,7 +452,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-riovida-burst" href="#" data-4l="/product/transfer-factor-riovida-burst/94" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_RioVidaBurst'});">
+    <a class="line" id="prod-transfer-factor-riovida-burst" href="#" data-4l="/product/transfer-factor-riovida-burst/94" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_RioVidaBurst'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/ecuador-riovida-burst.jpg?width=450&mode=crop&quality=80" alt="4Life Transfer Factor RioVida Burst Tri-Factor Formula" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">4Life Transfer Factor RioVida Burst Tri-Factor Formula</h4>
@@ -470,7 +467,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-bioefa-con-cla" href="#" data-4l="/product/bioefa-with-cla/3" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_BioEFA'});">
+    <a class="line" id="prod-bioefa-con-cla" href="#" data-4l="/product/bioefa-with-cla/3" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_BioEFA'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador-bioefa-image.jpg?width=450&mode=crop&quality=80" alt="BioEFA con CLA" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">BioEFA con CLA</h4>
@@ -485,7 +482,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-malepro" href="#" data-4l="/product/transfer-factor-malepro/1693" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_MalePro'});">
+    <a class="line" id="prod-transfer-factor-malepro" href="#" data-4l="/product/transfer-factor-malepro/1693" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_MalePro'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/ecuador-malepro-new.jpg?width=450&mode=crop&quality=80" alt="Transfer Factor MalePro" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Transfer Factor MalePro</h4>
@@ -500,7 +497,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-pre-obiotics" href="#" data-4l="/product/pre-obiotics/1997" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_PreOBiotics'});">
+    <a class="line" id="prod-pre-obiotics" href="#" data-4l="/product/pre-obiotics/1997" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_PreOBiotics'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_preo_20201106144902.jpg?width=450&mode=crop&quality=80" alt="Pre/Obiotics" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Pre/Obiotics</h4>
@@ -515,7 +512,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-kbu" href="#" data-4l="/product/4life-transfer-factor-kbu/3083" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_KBU'});">
+    <a class="line" id="prod-transfer-factor-kbu" href="#" data-4l="/product/4life-transfer-factor-kbu/3083" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_KBU'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador-kbu.jpg?width=450&mode=crop&quality=80" alt="4Life Transfer Factor KBU" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">4Life Transfer Factor KBU</h4>
@@ -530,7 +527,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-energy-go-stix-berry" href="#" data-4l="/product/energy-go-stix---berry/119" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_EnergyGoStix'});">
+    <a class="line" id="prod-energy-go-stix-berry" href="#" data-4l="/product/energy-go-stix---berry/119" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_EnergyGoStix'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_energy_go_stix_nueva.png?width=450&mode=crop&quality=80" alt="Energy Go Stix Berry" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Energy Go Stix Berry</h4>
@@ -545,7 +542,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-colageno" href="#" data-4l="/product/4life-transfer-factor-colageno/1814" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TFCollagen'});">
+    <a class="line" id="prod-transfer-factor-colageno" href="#" data-4l="/product/4life-transfer-factor-colageno/1814" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_TFCollagen'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_new_collagen.jpg?width=450&mode=crop&quality=80" alt="4Life Transfer Factor Colágeno" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">4Life Transfer Factor Colágeno</h4>
@@ -560,7 +557,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-nutrastart-nf" href="#" data-4l="/product/nutrastart-vanilla/50" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_NutraStart'});">
+    <a class="line" id="prod-nutrastart-nf" href="#" data-4l="/product/nutrastart-vanilla/50" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_NutraStart'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_new_nutrastart.jpg?width=450&mode=crop&quality=80" alt="NutraStart NF" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">NutraStart NF</h4>
@@ -575,7 +572,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-riovida-stix" href="#" data-4l="/product/transfer-factor-riovida-stix/102" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_RioVidaStix'});">
+    <a class="line" id="prod-transfer-factor-riovida-stix" href="#" data-4l="/product/transfer-factor-riovida-stix/102" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_RioVidaStix'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/ecuador-riovida-stix.jpg?width=450&mode=crop&quality=80" alt="4Life Transfer Factor RioVida Stix" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">4Life Transfer Factor RioVida Stix</h4>
@@ -590,7 +587,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-tf-boost" href="#" data-4l="/product/4life-tf-boost---ecuador/3619" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TFBoost'});">
+    <a class="line" id="prod-tf-boost" href="#" data-4l="/product/4life-tf-boost---ecuador/3619" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_TFBoost'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_tf_boost.png?width=450&mode=crop&quality=80" alt="4Life TF-Boost" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">4Life TF-Boost</h4>
@@ -605,7 +602,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-vistari" href="#" data-4l="/product/4life-transfer-factor-vistari/2710" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_Vistari'});">
+    <a class="line" id="prod-transfer-factor-vistari" href="#" data-4l="/product/4life-transfer-factor-vistari/2710" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_Vistari'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador-vistari-new.jpg?width=450&mode=crop&quality=80" alt="4Life Transfer Factor Vistari" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">4Life Transfer Factor Vistari</h4>
@@ -620,7 +617,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-immune-plus-pack" href="#" data-4l="/product/immune-plus-pack-150lp/3648" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_ImmunePlusPack'});">
+    <a class="line" id="prod-immune-plus-pack" href="#" data-4l="/product/immune-plus-pack-150lp/3648" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_ImmunePlusPack'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_immune_plus_pack.jpg?width=450&mode=crop&quality=80" alt="Immune Plus Pack 150LP" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Immune Plus Pack 150LP</h4>
@@ -635,7 +632,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-glutamine-prime" href="#" data-4l="/product/targeted-transfer-factor-glutamine-prime/2599" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_GlutaminePrime'});">
+    <a class="line" id="prod-glutamine-prime" href="#" data-4l="/product/targeted-transfer-factor-glutamine-prime/2599" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_GlutaminePrime'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador-glutamine-prime_20220118150251.jpg?width=450&mode=crop&quality=80" alt="Targeted Transfer Factor Glutamine Prime" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Targeted Transfer Factor Glutamine Prime</h4>
@@ -650,7 +647,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-fiber-system-plus" href="#" data-4l="/product/fiber-system-plus---ecuador/3817" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_FibreSystemPlus'});">
+    <a class="line" id="prod-fiber-system-plus" href="#" data-4l="/product/fiber-system-plus---ecuador/3817" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_FibreSystemPlus'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_new_fibre_system_plus_20240611103809.jpg?width=450&mode=crop&quality=80" alt="Fiber System Plus" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Fiber System Plus</h4>
@@ -665,7 +662,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-aloe-vera-stix-tropical" href="#" data-4l="/product/aloe-vera-stix-tropical-ecuador/3195" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_AloeVeraStix'});">
+    <a class="line" id="prod-aloe-vera-stix-tropical" href="#" data-4l="/product/aloe-vera-stix-tropical-ecuador/3195" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_AloeVeraStix'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/ecuador-aloevera.png?width=450&mode=crop&quality=80" alt="Aloe Vera Stix Tropical" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Aloe Vera Stix Tropical</h4>
@@ -680,7 +677,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-pro-tf-protein" href="#" data-4l="/product/pro-tf-protein/361" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_ProTF'});">
+    <a class="line" id="prod-pro-tf-protein" href="#" data-4l="/product/pro-tf-protein/361" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_ProTF'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_pro_tf_white.png?width=450&mode=crop&quality=80" alt="PRO-TF Protein" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">PRO-TF Protein</h4>
@@ -695,7 +692,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-ag-pro" href="#" data-4l="/product/ag-pro---ecuador/3843" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_AGPro'});">
+    <a class="line" id="prod-ag-pro" href="#" data-4l="/product/ag-pro---ecuador/3843" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_AGPro'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_ag_pro.jpg?width=450&mode=crop&quality=80" alt="AG-Pro" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">AG-Pro</h4>
@@ -710,7 +707,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-enummi-toothpaste" href="#" data-4l="/product/enummi-toothpaste--ecuador/3986" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_EnummiToothpaste'});">
+    <a class="line" id="prod-enummi-toothpaste" href="#" data-4l="/product/enummi-toothpaste--ecuador/3986" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_EnummiToothpaste'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador_tooth_paste_20241119153151.jpg?width=450&mode=crop&quality=80" alt="enummi Toothpaste" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">enummi Toothpaste</h4>
@@ -725,7 +722,7 @@
       </div>
     </a>
 
-    <a class="line" id="prod-intensive-body-lotion" href="#" data-4l="/product/locion-corporal-intensiva/1135" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_IntensiveBodyLotion'});">
+    <a class="line" id="prod-intensive-body-lotion" href="#" data-4l="/product/locion-corporal-intensiva/1135" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_IntensiveBodyLotion'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Ecuador-intensive-body-lotion.png?width=450&mode=crop&quality=80" alt="Intensive Body Lotion" loading="lazy" /></div>
       <div class="line-text-wrapper">
         <h4 class="line-name">Intensive Body Lotion</h4>
@@ -740,12 +737,12 @@
       </div>
     </a>
 
-    <a class="line" id="prod-product-packs" href="#" data-4l="/shop/07-product-packs" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_Packs'});">
+    <a class="line" id="prod-product-packs" href="#" data-4l="/shop/07-product-packs" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_Packs'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/images/products/productportals/TFCore.jpg" alt="Paquetes de Productos" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">Paquetes de Productos</h4><div class="line-description">Paquetes con valor agregado — ahorra más al comprar en conjunto*</div><span class="line-cta">Ver paquetes</span></div>
     </a>
 
-    <a class="line browse-all" id="prod-shop-all" href="#" data-4l="/shop/all" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_ShopAll'});">
+    <a class="line browse-all" id="prod-shop-all" href="#" data-4l="/shop/all" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_ShopAll'});">
       <div class="browse-icon">🛒</div>
       <div class="browse-title">Explora la tienda completa</div>
       <div class="browse-sub">Más de 100 productos para la salud inmunológica, energía, belleza y más</div>
@@ -767,9 +764,9 @@
       </ul>
       <div class="cta-container">
         <a class="create-account-btn" href="#" data-4l="/signup/pc" target="_blank" rel="noopener"
-           onclick="gtag('event','click',{'event_category':'outbound','event_label':'Signup_Preferred_Customer'});">Regístrese por solo $13</a>
+           onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Signup_Preferred_Customer'});">Regístrese por solo $13</a>
         <a class="learn-more-link" href="#" data-4l="/join-us" target="_blank" rel="noopener"
-           onclick="gtag('event','click',{'event_category':'outbound','event_label':'Signup_Learn_More'});">Conoce más</a>
+           onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Signup_Learn_More'});">Conoce más</a>
       </div>
     </div>
   </div>
@@ -785,6 +782,12 @@
     </div>
   </section>
 </div>
+
+  <script>
+    document.querySelectorAll('img').forEach(function(img) {
+      if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+    });
+  </script>
 
 </body>
 </html>

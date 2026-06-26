@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es-MX">
 <head>
 
@@ -46,9 +46,6 @@
       document.head.appendChild(s);
       gtag('js', new Date());
       gtag('config', CFG.GTAG_ID);
-
-      /* Fire Ads conversion */
-      fireAdsConversion();
 
       /* Inject distributor links */
       document.querySelectorAll('[data-4l]').forEach(function(el) {
@@ -220,13 +217,13 @@
 
 <div class="indie-notice">
   Distribuidor Independiente de 4Life — Productos vendidos a través del sitio oficial
-  <a href="#" data-4l="/shop/all" target="_blank" rel="noopener">mexico.4life.com</a>
+  <a href="#" data-4l="/shop/all" target="_blank" rel="noopener" onclick="fireAdsConversion();">mexico.4life.com</a>
 </div>
 
 <header id="headerV2">
   <div class="header-inner">
     <div id="Logo">
-      <a href="#" data-4l="" target="_blank" rel="noopener">
+      <a href="#" data-4l="" target="_blank" rel="noopener" onclick="fireAdsConversion();">
         <img src="https://media2.4life.com/images/logos/Blue_Logo_Primary_v2a_ENG.svg" alt="4Life - The Immune System Company®" />
       </a>
     </div>
@@ -237,7 +234,7 @@
         <li><a href="#signup-widget">Únete</a></li>
         <li class="shop-link">
           <a href="#" data-4l="/shop/all" target="_blank" rel="noopener"
-             onclick="gtag('event','click',{'event_category':'outbound','event_label':'Nav_Shop'});">🛒 Comprar</a>
+             onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Nav_Shop'});">🛒 Comprar</a>
         </li>
       </ul>
     </nav>
@@ -254,7 +251,7 @@
       <h1>Tu salud, tu negocio, tu futuro — con 4Life</h1>
       <p class="sub">Únete a la familia 4Life México y descubre una oportunidad real de bienestar y crecimiento</p>
       <a class="btn-hero" href="#" data-4l="/page/154/life-pays" target="_blank" rel="noopener"
-         onclick="gtag('event','click',{'event_category':'outbound','event_label':'Hero_Aprende_Mas'});">Aprende cómo paga 4Life</a>
+         onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Hero_Aprende_Mas'});">Aprende cómo paga 4Life</a>
     </div>
   </div>
 </section>
@@ -277,11 +274,11 @@
     <div class="media-text">
       <h2>Ciencia en la que puedes confiar</h2>
       <p>Ayuda a tu cuerpo a reconocer, responder y recordar posibles amenazas a la salud con 4Life Transfer Factor<sup>®</sup>: una molécula de memoria del sistema inmunológico que está <strong>clínicamente probada para activar el sistema inmunológico en dos horas!</strong><sup>*1</sup></p>
-      <p>Consulta las <strong><a href="#" data-4l="/page/47/studies-and-publications" target="_blank" rel="noopener">publicaciones revisadas por expertos, estudios independientes e internos</a></strong> y las <strong><a href="#" data-4l="/page/126/global-patents" target="_blank" rel="noopener">patentes de 4Life</a></strong>.
+      <p>Consulta las <strong><a href="#" data-4l="/page/47/studies-and-publications" target="_blank" rel="noopener" onclick="fireAdsConversion();">publicaciones revisadas por expertos, estudios independientes e internos</a></strong> y las <strong><a href="#" data-4l="/page/126/global-patents" target="_blank" rel="noopener" onclick="fireAdsConversion();">patentes de 4Life</a></strong>.
       </p>
       <br>
       <a href="#" data-4l="/page/69/transferfactor" target="_blank" rel="noopener" class="btn btn-science"
-         onclick="gtag('event','click',{'event_category':'outbound','event_label':'Science_Transfer_Factors'});">
+         onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Science_Transfer_Factors'});">
         ¿Qué son los factores de transferencia?
       </a>
       <div class="trust-badges">
@@ -304,67 +301,67 @@
   </div>
   <div class="product-lines contain-layout apply-padding">
 
-    <a class="line" id="prod-tf-max-convention-special" href="#" data-4l="/product/tf-max-convention-special/4604" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TF_Max_Convention_Special'});">
+    <a class="line" id="prod-tf-max-convention-special" href="#" data-4l="/product/tf-max-convention-special/4604" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_TF_Max_Convention_Special'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Max_pack_20260406155450.webp?width=450&mode=crop&quality=80" alt="TF Max Convention Special" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">TF Max Convention Special</h4><div class="line-description">Paquete exclusivo de convención con el futuro del respaldo inmunológico*</div><span class="line-cta">Comprar ahora</span></div>
     </a>
 
-    <a class="line" id="prod-energy-berry" href="#" data-4l="/product/energy-berry/1629" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_EnergyBerry'});">
+    <a class="line" id="prod-energy-berry" href="#" data-4l="/product/energy-berry/1629" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_EnergyBerry'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_gostix_berry_us.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_1629.jpg'" alt="Energy Berry" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">Energy Berry</h4><div class="line-description">Mezcla energética natural con el respaldo de Transfer Factor*</div><span class="line-cta">Comprar ahora</span></div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-plus-tri-factor" href="#" data-4l="/product/transfer-factor-plus-tri-factor/89" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TFPlus'});">
+    <a class="line" id="prod-transfer-factor-plus-tri-factor" href="#" data-4l="/product/transfer-factor-plus-tri-factor/89" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_TFPlus'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/TFPlus.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_89.jpg'" alt="Transfer Factor Plus Tri-Factor Formula" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">Transfer Factor Plus Tri-Factor<sup>®</sup></h4><div class="line-description">Respaldo inmunológico avanzado con la Fórmula Tri-Factor*</div><span class="line-cta">Comprar ahora</span></div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-riovida" href="#" data-4l="/product/transfer-factor-riovida/93" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_RioVida'});">
+    <a class="line" id="prod-transfer-factor-riovida" href="#" data-4l="/product/transfer-factor-riovida/93" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_RioVida'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_riovida_juice_us.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_93.jpg'" alt="Transfer Factor RioVida" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">Transfer Factor RioVida<sup>®</sup></h4><div class="line-description">Jugo de superfrutas rico en antioxidantes con Transfer Factor*</div><span class="line-cta">Comprar ahora</span></div>
     </a>
 
-    <a class="line" id="prod-pro-tf-chocolate" href="#" data-4l="/product/pro-tf-chocolate/662" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_ProTFChocolate'});">
+    <a class="line" id="prod-pro-tf-chocolate" href="#" data-4l="/product/pro-tf-chocolate/662" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_ProTFChocolate'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_pro_tf_choc_us.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_662.jpg'" alt="Pro-TF Chocolate" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">Pro-TF<sup>®</sup> Chocolate</h4><div class="line-description">Batido sustituto de comida alto en proteína con Transfer Factor*</div><span class="line-cta">Comprar ahora</span></div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-collagen" href="#" data-4l="/product/transfer-factor-collagen/1533" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TFCollagen'});">
+    <a class="line" id="prod-transfer-factor-collagen" href="#" data-4l="/product/transfer-factor-collagen/1533" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_TFCollagen'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_collagen_US_ENG.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_1533.jpg'" alt="Transfer Factor Collagen" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">Transfer Factor Collagen</h4><div class="line-description">Colágeno + respaldo inmunológico para la piel, las articulaciones y la vitalidad*</div><span class="line-cta">Comprar ahora</span></div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-classic" href="#" data-4l="/product/transfer-factor-classic/79" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TFClassic'});">
+    <a class="line" id="prod-transfer-factor-classic" href="#" data-4l="/product/transfer-factor-classic/79" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_TFClassic'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Classic.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_79.jpg'" alt="Transfer Factor Classic" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">Transfer Factor Classic</h4><div class="line-description">La fórmula original de respaldo inmunológico a base de calostro*</div><span class="line-cta">Comprar ahora</span></div>
     </a>
 
-    <a class="line" id="prod-nutrastart-blue-vanilla" href="#" data-4l="/product/nutrastart-blue-vanilla/3033" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_NutraStart'});">
+    <a class="line" id="prod-nutrastart-blue-vanilla" href="#" data-4l="/product/nutrastart-blue-vanilla/3033" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_NutraStart'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_nutrastart_blue_vanilla_us.webp?width=1000&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_3033.jpg'" alt="NutraStart Blue Vanilla" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">NutraStart<sup>®</sup> Blue Vanilla</h4><div class="line-description">Batido nutricional para un comienzo equilibrado y energizante del día*</div><span class="line-cta">Comprar ahora</span></div>
     </a>
 
-    <a class="line" id="prod-transfer-factor-chewable" href="#" data-4l="/product/transfer-factor-chewable/78" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_TFChewable'});">
+    <a class="line" id="prod-transfer-factor-chewable" href="#" data-4l="/product/transfer-factor-chewable/78" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_TFChewable'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/Chewable.webp?width=450&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_78.jpg'" alt="Transfer Factor Chewable" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">Transfer Factor Chewable</h4><div class="line-description">Respaldo inmunológico masticable, ideal para niños*</div><span class="line-cta">Comprar ahora</span></div>
     </a>
 
-    <a class="line" id="prod-belle-vie" href="#" data-4l="/product/belle-vie/75" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_BelleVie'});">
+    <a class="line" id="prod-belle-vie" href="#" data-4l="/product/belle-vie/75" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_BelleVie'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_bellevie_us.webp?width=450&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_75.jpg'" alt="Belle Vie" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">Belle Vie<sup>®</sup></h4><div class="line-description">Fórmula de bienestar femenino con respaldo hormonal e inmunológico*</div><span class="line-cta">Comprar ahora</span></div>
     </a>
 
-    <a class="line" id="prod-renuvo" href="#" data-4l="/product/renuvo/423" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_Renuvo'});">
+    <a class="line" id="prod-renuvo" href="#" data-4l="/product/renuvo/423" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_Renuvo'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/products/product_renuvo_us.webp?width=450&mode=crop&quality=80" onerror="this.src='https://media2.4life.com/images/products/us/thumb_423.jpg'" alt="Renuvo" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">Renuvo<sup>®</sup></h4><div class="line-description">Renovación celular antienvejecimiento y respaldo inmunológico*</div><span class="line-cta">Comprar ahora</span></div>
     </a>
 
-    <a class="line" id="prod-product-packs" href="#" data-4l="/shop/07-product-packs" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_Packs'});">
+    <a class="line" id="prod-product-packs" href="#" data-4l="/shop/07-product-packs" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_Packs'});">
       <div class="overflow-image-container"><img src="https://media2.4life.com/images/products/productportals/TFCore.jpg" alt="Paquetes de Productos" loading="lazy" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">Paquetes de Productos</h4><div class="line-description">Paquetes con valor agregado — ahorra más al comprar en conjunto*</div><span class="line-cta">Ver paquetes</span></div>
     </a>
 
-    <a class="line browse-all" id="prod-shop-all" href="#" data-4l="/shop/all" target="_blank" rel="noopener" onclick="gtag('event','click',{'event_category':'outbound','event_label':'Product_ShopAll'});">
+    <a class="line browse-all" id="prod-shop-all" href="#" data-4l="/shop/all" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_ShopAll'});">
       <div class="browse-icon">🛒</div>
       <div class="browse-title">Explora la tienda completa</div>
       <div class="browse-sub">Más de 100 productos para la salud inmunológica, energía, belleza y más</div>
@@ -388,9 +385,9 @@
       </ul>
       <div class="cta-container">
         <a class="create-account-btn" href="#" data-4l="/signup/pc" target="_blank" rel="noopener"
-           onclick="gtag('event','click',{'event_category':'outbound','event_label':'Signup_Preferred_Customer'});">¡Regístrate ahora!</a>
+           onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Signup_Preferred_Customer'});">¡Regístrate ahora!</a>
         <a class="learn-more-link" href="#" data-4l="/join-us" target="_blank" rel="noopener"
-           onclick="gtag('event','click',{'event_category':'outbound','event_label':'Signup_Learn_More'});">Conoce más</a>
+           onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Signup_Learn_More'});">Conoce más</a>
       </div>
     </div>
   </div>
@@ -408,6 +405,12 @@
     </div>
   </section>
 </div>
+
+  <script>
+    document.querySelectorAll('img').forEach(function(img) {
+      if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+    });
+  </script>
 
 </body>
 </html>
