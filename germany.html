@@ -3,6 +3,9 @@
 <head>
 
   <meta charset="utf-8" />
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//media2.4life.com">
+  <link rel="preconnect" href="https://media2.4life.com" crossorigin>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <title>Immunsystem-Unterstützung & Wellness-Ergänzungsmittel | 4Life Deutschland</title>
@@ -73,11 +76,9 @@
     });
   </script>
 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
   <style>
-    @font-face { font-family:'Roboto'; font-style:normal; font-weight:300; src:url('https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc4.woff2') format('woff2'); font-display:swap; }
-    @font-face { font-family:'Roboto'; font-style:normal; font-weight:400; src:url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2') format('woff2'); font-display:swap; }
-    @font-face { font-family:'Roboto'; font-style:normal; font-weight:700; src:url('https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc4.woff2') format('woff2'); font-display:swap; }
-
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     html { scroll-behavior:smooth; }
     body { font-family:'Roboto',sans-serif; font-size:16px; color:#333; background:#fff; -webkit-font-smoothing:antialiased; }
@@ -267,7 +268,7 @@
   <div class="contain-layout padded">
     <div class="media-visual">
       <a href="https://www.youtube.com/watch?v=MGZwqJo1AY0" target="_blank" rel="noopener">
-        <img src="https://media2.4life.com/images/pageBuilder/4life_trusted_science_20250331194421.jpg" alt="4Life Science" />
+        <img src="https://media2.4life.com/images/pageBuilder/4life_trusted_science_20250331194421.jpg" alt="4Life Science" loading="lazy" />
         <div class="media-icon-play"></div>
       </a>
     </div>
@@ -302,7 +303,7 @@
   <div class="product-lines contain-layout apply-padding">
 
     <a class="line" id="prod-tf-max-convention-special" href="#" data-4l="/product/tf-max-convention-special/4604" target="_blank" rel="noopener" onclick="fireAdsConversion();gtag('event','click',{'event_category':'outbound','event_label':'Product_TF_Max_Convention_Special'});">
-      <div class="overflow-image-container"><img src="https://media2.4life.com/products/Max_pack_20260406155450.webp?width=450&mode=crop&quality=80" alt="TF Max Convention Special" /></div>
+      <div class="overflow-image-container"><img src="https://media2.4life.com/products/Max_pack_20260406155450.webp?width=450&mode=crop&quality=80" alt="TF Max Convention Special" loading="eager" fetchpriority="high" /></div>
       <div class="line-text-wrapper"><h4 class="line-name">TF Max Convention Special</h4><div class="line-description">Exklusives Konventionspaket mit der Zukunft der Immununterstützung*</div><span class="line-cta">Jetzt kaufen</span></div>
     </a>
 
@@ -411,6 +412,11 @@
       if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
     });
   </script>
+<script>
+  document.querySelectorAll('img[loading="lazy"]').forEach(function(img){
+    img.decoding = 'async';
+  });
+</script>
 
 </body>
 </html>
